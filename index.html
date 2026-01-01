@@ -7,11 +7,10 @@
 
   <style>
     :root{
-      --bg: #070A0C;          /* near-black */
-      --text: #E6E6E6;        /* soft white */
-      --muted: #A9B0B6;       /* muted gray */
-      --accent: #7CFC98;      /* terminal green */
-      --accent2: #89B4FF;     /* subtle blue */
+      --bg: #070A0C;
+      --text: #E6E6E6;
+      --muted: #A9B0B6;
+      --accent: #8FAFD8; /* muted cold blue */
       --border: rgba(255,255,255,.08);
     }
 
@@ -24,34 +23,27 @@
 
     .wrap {
       padding: 24px;
-      max-width: 760px;
-    }
-
-    .hero {
-      display: flex;
-      align-items: flex-start;
-      gap: 18px;
+      max-width: 560px;
     }
 
     .img {
-      width: 180px;
-      height: auto;
+      width: 220px;
+      max-width: 100%;
       border: 1px solid var(--border);
       border-radius: 10px;
+      margin-bottom: 18px;
       display: block;
     }
 
     .title {
       font-size: 1.25rem;
-      line-height: 1.2;
-      color: var(--accent);
       margin: 0 0 10px 0;
+      color: var(--text);
       letter-spacing: 0.2px;
     }
 
     .tagline {
       margin: 0 0 18px 0;
-      color: var(--text);
       font-size: 1.0rem;
       line-height: 1.55;
     }
@@ -59,18 +51,17 @@
     .cta {
       margin: 0 0 18px 0;
       font-size: 1.0rem;
-      line-height: 1.55;
     }
 
     .cta a {
-      color: var(--accent2);
+      color: var(--accent);
       text-decoration: none;
-      border-bottom: 1px dashed rgba(137,180,255,.45);
+      border-bottom: 1px dashed rgba(143,175,216,.45);
       padding-bottom: 1px;
     }
 
     .cta a:hover {
-      border-bottom-color: rgba(137,180,255,.9);
+      border-bottom-color: rgba(143,175,216,.9);
     }
 
     .meta {
@@ -79,38 +70,35 @@
       font-size: 0.95rem;
       line-height: 1.55;
     }
-
-    /* Mobile: stack image above text */
-    @media (max-width: 520px) {
-      .hero { flex-direction: column; gap: 14px; }
-      .img { width: 220px; }
-    }
   </style>
 </head>
 
 <body>
   <div class="wrap">
-    <div class="hero">
-      <img class="img" src="bleedout.gif" alt="Snow falling on an empty walkway at night" />
 
-      <div>
-        <h1 class="title">AI8MyDad</h1>
+    <img
+      class="img"
+      src="bleedout.gif"
+      alt="Snow falling on an empty walkway at night"
+    />
 
-        <p class="tagline">
-          The advice you didn’t get, without the lecture.
-        </p>
+    <h1 class="title">AI8MyDad</h1>
 
-        <p class="cta">
-          Text on WhatsApp:
-          <a href="https://wa.me/1XXXXXXXXXX">+1 XXX XXX XXXX</a>
-        </p>
+    <p class="tagline">
+      The advice you didn’t get, without the lecture.
+    </p>
 
-        <p class="meta">
-          AI chatbot on WhatsApp.<br />
-          30 messages/day free. 200 messages for $5/month.
-        </p>
-      </div>
-    </div>
+    <p class="cta">
+      Text on WhatsApp:
+      <a href="https://wa.me/1XXXXXXXXXX">+1&nbsp;XXX&nbsp;XXX&nbsp;XXXX</a>
+    </p>
+
+    <p class="meta">
+      AI chatbot on WhatsApp.<br />
+      30 messages per day free.<br />
+      200 messages per day for $5/month.
+    </p>
+
   </div>
 </body>
 </html>
