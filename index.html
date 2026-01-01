@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI8MyDad</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: #0b0f0b;
+      color: #7cfc98;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+    .terminal {
+      padding: 24px;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      max-width: 720px;
+    }
+    .cursor::after {
+      content: "_";
+      animation: blink 1s steps(2, start) infinite;
+    }
+    @keyframes blink {
+      to { visibility: hidden; }
+    }
+  </style>
+</head>
+<body>
+  <div class="terminal">
+$ whoami
+AI8MyDad
+
+$ cat README.txt
+Private WhatsApp AI.
+Advice like you should have gotten.
+Not for everyone.
+
+$ contact
++1 XXX XXX XXXX
+
+$ <span class="cursor"></span>
+  </div>
+</body>
+</html>
