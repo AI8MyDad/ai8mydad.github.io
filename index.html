@@ -6,62 +6,111 @@
   <title>AI8MyDad</title>
 
   <style>
+    :root{
+      --bg: #070A0C;          /* near-black */
+      --text: #E6E6E6;        /* soft white */
+      --muted: #A9B0B6;       /* muted gray */
+      --accent: #7CFC98;      /* terminal green */
+      --accent2: #89B4FF;     /* subtle blue */
+      --border: rgba(255,255,255,.08);
+    }
+
     html, body {
       margin: 0;
-      background: #0b0f0b;
-      color: #e6e6e6;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
     }
 
-    .container {
+    .wrap {
       padding: 24px;
-      max-width: 640px;
+      max-width: 760px;
     }
 
-    .image {
-      width: 220px;
-      max-width: 100%;
-      margin-bottom: 16px;
+    .hero {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
     }
 
-    .copy {
-      font-size: 1.05rem;
-      line-height: 1.5;
-      margin-bottom: 14px;
+    .img {
+      width: 180px;
+      height: auto;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      display: block;
     }
 
-    .contact {
-      font-weight: 600;
+    .title {
+      font-size: 1.25rem;
+      line-height: 1.2;
+      color: var(--accent);
+      margin: 0 0 10px 0;
+      letter-spacing: 0.2px;
     }
 
-    a {
-      color: inherit;
+    .tagline {
+      margin: 0 0 18px 0;
+      color: var(--text);
+      font-size: 1.0rem;
+      line-height: 1.55;
+    }
+
+    .cta {
+      margin: 0 0 18px 0;
+      font-size: 1.0rem;
+      line-height: 1.55;
+    }
+
+    .cta a {
+      color: var(--accent2);
       text-decoration: none;
+      border-bottom: 1px dashed rgba(137,180,255,.45);
+      padding-bottom: 1px;
+    }
+
+    .cta a:hover {
+      border-bottom-color: rgba(137,180,255,.9);
+    }
+
+    .meta {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    /* Mobile: stack image above text */
+    @media (max-width: 520px) {
+      .hero { flex-direction: column; gap: 14px; }
+      .img { width: 220px; }
     }
   </style>
 </head>
+
 <body>
-  <div class="container">
+  <div class="wrap">
+    <div class="hero">
+      <img class="img" src="bleedout.gif" alt="Snow falling on an empty walkway at night" />
 
-    <img
-      src="bleedout.gif"
-      alt="Snow falling on an empty walkway at night"
-      class="image"
-    />
+      <div>
+        <h1 class="title">AI8MyDad</h1>
 
-    <div class="copy">
-      Say what you can’t say out loud.<br /><br />
-      Private WhatsApp AI.<br />
-      Straight answers.<br />
-      No therapy. No audience.
+        <p class="tagline">
+          The advice you didn’t get, without the lecture.
+        </p>
+
+        <p class="cta">
+          Text on WhatsApp:
+          <a href="https://wa.me/1XXXXXXXXXX">+1 XXX XXX XXXX</a>
+        </p>
+
+        <p class="meta">
+          AI chatbot on WhatsApp.<br />
+          30 messages/day free. 200 messages for $5/month.
+        </p>
+      </div>
     </div>
-
-    <div class="contact">
-      <a href="https://wa.me/1XXXXXXXXXX">
-        Text on WhatsApp: +1&nbsp;XXX&nbsp;XXX&nbsp;XXXX
-      </a>
-    </div>
-
   </div>
 </body>
 </html>
