@@ -3,139 +3,260 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-<!-- Favicon -->
-<link rel="icon" type="image/x-icon" href="/pubic/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="/public/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/public/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/public/favicon-96x96.png">
 
-<!-- Apple Touch Icons -->
-<link rel="apple-touch-icon" sizes="57x57" href="/public/apple-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="/public/apple-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="/public/apple-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="/public/apple-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="/public/apple-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="/public/apple-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="/public/apple-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="/public/apple-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/public/apple-icon-180x180.png">
-<link rel="apple-touch-icon-precomposed" href="/public/apple-icon-precomposed.png">
-
-<!-- Android / PWA -->
-<link rel="manifest" href="/public/manifest.json">
-<meta name="theme-color" content="#ffffff">
-
-<!-- Microsoft / Edge -->
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="/public/ms-icon-144x144.png">
-<meta name="msapplication-config" content="/public/browserconfig.xml">
-
-  
   <title>AI8MyDad</title>
+  <meta name="description" content="A blunt, no-lecture AI chatbot on WhatsApp. 10 messages/day free. 50 messages/day for $5/month." />
+
+  <!-- Favicons (GitHub Pages: keep assets at repo root OR a real /public folder) -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+
+  <!-- Apple Touch Icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png" />
+
+  <!-- Theme -->
+  <meta name="theme-color" content="#070A0C" />
 
   <style>
     :root{
       --bg: #070A0C;
-      --text: #E6E6E6;
-      --muted: #A9B0B6;
-      --accent: #8FAFD8; /* muted cold blue */
+      --panel: rgba(255,255,255,.04);
       --border: rgba(255,255,255,.08);
+      --text: #EDEDED;
+      --muted: #A9B0B6;
+      --accent: #8FAFD8;
+      --danger: #d32f2f;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
     }
+
+    * { box-sizing: border-box; }
 
     html, body {
       margin: 0;
+      padding: 0;
       background: var(--bg);
       color: var(--text);
       font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    .wrap {
-      padding: 24px;
-      max-width: 560px;
+    a { color: inherit; }
+
+    .wrap{
+      max-width: 680px;
+      padding: 28px 20px 40px;
+      margin: 0 auto;
     }
-        
-    .eight {
-      margin: 0 0.15em; /* adjust between 0.1–0.2em if needed */
-      display: inline-block;
+
+    .card{
+      border: 1px solid var(--border);
+      background: var(--panel);
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: var(--shadow);
     }
-        
-    .img {
+
+    .hero{
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    @media (max-width: 640px){
+      .hero{ grid-template-columns: 1fr; }
+    }
+
+    .img{
       width: 220px;
       max-width: 100%;
       border: 1px solid var(--border);
-      border-radius: 10px;
-      margin-bottom: 18px;
+      border-radius: 12px;
       display: block;
+      background: #000;
     }
 
-    .title {
-      font-size: 1.25rem;
+    .title{
       margin: 0 0 10px 0;
-      color: var(--text);
+      font-size: 1.6rem;
+      line-height: 1.1;
       letter-spacing: 0.2px;
     }
 
-    .tagline {
-      margin: 0 0 18px 0;
-      font-size: 1.0rem;
+    .eight{
+      display: inline-block;
+      margin: 0 0.12em; /* "half-space" feel */
+      color: var(--danger);
+    }
+
+    .tagline{
+      margin: 0 0 14px 0;
+      font-size: 1.05rem;
       line-height: 1.55;
-    }
-    
-    .red {
-      color: #d32f2f; /* or whatever red you're using elsewhere */
-    }
-    
-    .cta {
-      margin: 0 0 18px 0;
-      font-size: 1.0rem;
+      color: var(--text);
     }
 
-    .cta a {
-      color: var(--accent);
-      text-decoration: none;
-      border-bottom: 1px dashed rgba(143,175,216,.45);
-      padding-bottom: 1px;
-    }
-
-    .cta a:hover {
-      border-bottom-color: rgba(143,175,216,.9);
-    }
-
-    .meta {
-      margin: 0;
+    .bullets{
+      margin: 0 0 16px 0;
+      padding: 0;
+      list-style: none;
       color: var(--muted);
-      font-size: 0.95rem;
       line-height: 1.55;
+      font-size: 0.98rem;
+    }
+
+    .bullets li{
+      margin: 6px 0;
+    }
+
+    .bullets li::before{
+      content: "•";
+      color: rgba(143,175,216,.9);
+      margin-right: 10px;
+    }
+
+    .ctaRow{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-top: 6px;
+    }
+
+    .btn{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(143,175,216,.35);
+      background: rgba(143,175,216,.12);
+      color: var(--text);
+      text-decoration: none;
+      cursor: pointer;
+      font-size: 0.98rem;
+      transition: transform .08s ease, background .15s ease, border-color .15s ease;
+      user-select: none;
+    }
+
+    .btn:hover{
+      background: rgba(143,175,216,.18);
+      border-color: rgba(143,175,216,.6);
+      transform: translateY(-1px);
+    }
+
+    .btn:active{
+      transform: translateY(0px);
+    }
+
+    .btnSecondary{
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    .btnSecondary:hover{
+      background: rgba(255,255,255,.04);
+      border-color: rgba(255,255,255,.14);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .small{
+      margin: 14px 0 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    .divider{
+      height: 1px;
+      background: var(--border);
+      margin: 18px 0 14px;
+    }
+
+    .footer{
+      margin-top: 14px;
+      color: rgba(169,176,182,.75);
+      font-size: 0.86rem;
+      line-height: 1.55;
+    }
+
+    code.inline{
+      padding: 2px 6px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-size: 0.92em;
     }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
+  <main class="wrap">
+    <section class="card">
+      <div class="hero">
+        <img class="img" src="bleedout.gif" alt="Snow falling on an empty walkway at night" />
 
-    <img
-      class="img"
-      src="bleedout.gif"
-      alt="Snow falling on an empty walkway at night"
-    />
+        <div>
+          <h1 class="title">AI<span class="eight">8</span>MyDad</h1>
 
-   <h1 class="title">AI<span class="red eight">8</span>MyDad</h1>
+          <p class="tagline">
+            Blunt advice on WhatsApp. No lectures. No audience.
+          </p>
 
-    <p class="tagline">
-      The advice you didn’t get (without the woke lecture).
-    </p>
+          <ul class="bullets">
+            <li>Text-based AI chatbot on WhatsApp</li>
+            <li><strong>10 messages/day free</strong> (resets daily)</li>
+            <li><strong>50 messages/day</strong> for <strong>$5/month</strong></li>
+          </ul>
 
-    <p class="cta">
-      Text on WhatsApp:
-      <a href="https://wa.me/1XXXXXXXXXX">+1&nbsp;XXX&nbsp;XXX&nbsp;XXXX</a>
-    </p>
+          <div class="ctaRow">
+            <!-- TODO: replace with your real number in both places -->
+            <a class="btn" href="https://wa.me/1XXXXXXXXXX" target="_blank" rel="noopener noreferrer">
+              Open WhatsApp
+            </a>
 
-    <p class="meta">
-      AI chatbot on WhatsApp.<br />
-      10 messages per day free.<br />
-      50 messages per day for $5/month.
-    </p>
+            <button class="btn btnSecondary" type="button" id="copyNumberBtn" aria-label="Copy WhatsApp number">
+              Copy number
+            </button>
+          </div>
 
-  </div>
+          <p class="small">
+            Text <code class="inline">START</code> to begin.
+          </p>
+
+          <div class="divider"></div>
+
+          <p class="footer">
+            Not medical or legal advice. If you’re in immediate danger or crisis, contact local emergency services.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // TODO: replace with the real display number (and update the wa.me link above)
+    const DISPLAY_NUMBER = "+1 XXX XXX XXXX";
+
+    const btn = document.getElementById("copyNumberBtn");
+    btn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(DISPLAY_NUMBER);
+        const original = btn.textContent;
+        btn.textContent = "Copied";
+        setTimeout(() => (btn.textContent = original), 1100);
+      } catch (e) {
+        // Clipboard can fail on some browsers/contexts; fail silently.
+        alert("Copy failed. Number: " + DISPLAY_NUMBER);
+      }
+    });
+  </script>
 </body>
 </html>
