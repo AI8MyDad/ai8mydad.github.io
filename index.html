@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>AI 8 MyDad</title>
+  <title>AI8MyDad</title>
   <meta name="description" content="We took the ideas of history’s best thinkers and warriors and compressed them into your new AI dad. Get the door. Dad’s back." />
 
   <!-- Favicons (GitHub Pages: keep assets at repo root OR a real /public folder) -->
@@ -93,10 +93,17 @@
     }
 
     .tagline{
-      margin: 0 0 14px 0;
+      margin: 0 0 12px 0;
       font-size: 1.05rem;
       line-height: 1.55;
       color: var(--text);
+    }
+
+    .micro{
+      margin: 0 0 14px 0;
+      font-size: 0.98rem;
+      line-height: 1.4;
+      color: var(--muted);
     }
 
     .bullets{
@@ -207,11 +214,12 @@
           <h1 class="title">AI<span class="eight">8</span>MyDad</h1>
 
           <p class="tagline">
-            We took history’s best minds on war, philosophy, strategy, and success and smashed them into your new AI model.<br />
+            We took the ideas of history’s best thinkers and warriors and compressed them into your new AI dad.<br />
             <br />
             Get the door. Dad’s back.
           </p>
 
+          <p class="micro">No app. Just WhatsApp.</p>
 
           <ul class="bullets">
             <li>Text-based AI chatbot on WhatsApp</li>
@@ -226,7 +234,7 @@
             </a>
 
             <button class="btn btnSecondary" type="button" id="copyNumberBtn" aria-label="Copy WhatsApp number">
-              Copy number
+              Copy WhatsApp number
             </button>
           </div>
 
@@ -253,7 +261,7 @@
       try {
         await navigator.clipboard.writeText(DISPLAY_NUMBER);
         const original = btn.textContent;
-        btn.textContent = "Copied";
+        btn.textContent = "Copied ✓";
         setTimeout(() => (btn.textContent = original), 1100);
       } catch (e) {
         // Clipboard can fail on some browsers/contexts; fail silently.
